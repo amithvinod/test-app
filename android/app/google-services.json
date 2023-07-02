@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "708923225544",
+    "project_id": "quikart-29573",
+    "storage_bucket": "quikart-29573.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708923225544:android:635ef8464580f05501bcfd",
+        "android_client_info": {
+          "package_name": "com.quikartsapplication.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708923225544-601kn8j63n6k4qn7rdl5hiihm2snldvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClzi-yp-UwxC69j4KqYHq2NgF_lAUU9Zk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708923225544-601kn8j63n6k4qn7rdl5hiihm2snldvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

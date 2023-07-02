@@ -14,9 +14,9 @@ import 'package:quikart_s_application1/presentation/add_address_one_screen/add_a
 import 'package:quikart_s_application1/presentation/app_navigation_screen/app_navigation_screen.dart';
 
 class AppRoutes {
-  static const String signUpTwoScreen = '/sign_up_two_screen';
-
   static const String loginScreenTwoScreen = '/login_screen_two_screen';
+
+  static const String signUpTwoScreen = '/sign_up_two_screen';
 
   static const String signUpOneScreen = '/sign_up_one_screen';
 
@@ -43,8 +43,8 @@ class AppRoutes {
   static const String appNavigationScreen = '/app_navigation_screen';
 
   static Map<String, WidgetBuilder> routes = {
-    signUpTwoScreen: (context) => SignUpTwoScreen(),
     loginScreenTwoScreen: (context) => LoginScreenTwoScreen(),
+    signUpTwoScreen: (context) => SignUpTwoScreen(),
     signUpOneScreen: (context) => SignUpOneScreen(),
     signInOneScreen: (context) => SignInOneScreen(),
     homepageScreen: (context) => HomepageScreen(),

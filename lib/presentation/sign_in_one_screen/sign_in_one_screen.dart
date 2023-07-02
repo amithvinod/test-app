@@ -1,9 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:quikart_s_application1/core/app_export.dart';
+import 'package:quikart_s_application1/services/firebase_auth_method.dart';
 import 'package:quikart_s_application1/widgets/custom_button.dart';
+import 'package:quikart_s_application1/widgets/custom_text_form_field.dart';
 
 class SignInOneScreen extends StatelessWidget {
-  const SignInOneScreen({Key? key}) : super(key: key);
+  SignInOneScreen({Key? key}) : super(key: key);
+  final TextEditingController phoneController = TextEditingController();
+
+  void phoneSignIn(BuildContext context) {
+    FirebaseAuthMethods(FirebaseAuth.instance).phoneSignIn(
+      context, phoneController.text
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -104,16 +115,22 @@ class SignInOneScreen extends StatelessWidget {
                                                                               height: getVerticalSize(30),
                                                                               width: getHorizontalSize(18),
                                                                               margin: getMargin(top: 4, bottom: 4)),
-                                                                          Padding(
-                                                                              padding: getPadding(left: 39),
-                                                                              child: Text("Phone number", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtPoppinsRegular2469))
-                                                                        ])),
+                                                                          CustomTextFormField(
+                                                                            controller: phoneController,
+                                                                            hintText: "Enter Phone",
+                                                                            width: 300,
+                                                                            alignment: Alignment.centerLeft,
+                                                                          )
+                                                                          ])),
                                                                 CustomButton(
                                                                     height:
                                                                         getVerticalSize(
                                                                             46),
                                                                     text:
-                                                                        "Continue",
+                                                                        "Send OTP",
+                                                                      onTap: () {
+                                                                        phoneSignIn(context);
+                                                                      },
                                                                     margin: getMargin(
                                                                         left: 4,
                                                                         top: 91,

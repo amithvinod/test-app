@@ -1,9 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:quikart_s_application1/core/app_export.dart';
+import 'package:quikart_s_application1/services/firebase_auth_method.dart';
 import 'package:quikart_s_application1/widgets/custom_button.dart';
+import 'package:quikart_s_application1/widgets/custom_text_form_field.dart';
 
 class SignUpOneScreen extends StatelessWidget {
-  const SignUpOneScreen({Key? key}) : super(key: key);
+  SignUpOneScreen({Key? key}) : super(key: key);
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  void signUpUser(BuildContext context) async {
+    FirebaseAuthMethods(FirebaseAuth.instance).signUpWithEmail(
+      email: emailController.text,
+      password: passwordController.text,
+      context: context,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +93,71 @@ class SignUpOneScreen extends StatelessWidget {
                                                                                 .left,
                                                                         style: AppStyle
                                                                             .txtPoppinsSemiBold3015)),
+
+                                                                Container(
+                                                                    margin: getMargin(
+                                                                        left: 6,
+                                                                        top:
+                                                                            19),
+                                                                    padding: getPadding(
+                                                                        left:
+                                                                            19,
+                                                                        top: 5,
+                                                                        right:
+                                                                            19,
+                                                                        bottom:
+                                                                            5),
+                                                                    decoration: AppDecoration
+                                                                        .outlineWhiteA700
+                                                                        .copyWith(
+                                                                            borderRadius: BorderRadiusStyle
+                                                                                .circleBorder19),
+                                                                    child: Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.min,
+                                                                        children: [
+                                                                          CustomImageView(
+                                                                              svgPath: ImageConstant.imgIcoutlineemail,
+                                                                              height: getVerticalSize(25),
+                                                                              width: getHorizontalSize(24)),
+                                                                          CustomTextFormField(
+                                                                            controller: emailController,
+                                                                            hintText: "Enter email",
+                                                                            width: 300,
+                                                                            alignment: Alignment.centerLeft,
+                                                                          )
+                                                                          ])),
+
+                                                                // Container(
+                                                                //     margin: getMargin(
+                                                                //         left: 6,
+                                                                //         top:
+                                                                //             20),
+                                                                //     padding: getPadding(
+                                                                //         left:
+                                                                //             20,
+                                                                //         top: 6,
+                                                                //         right:
+                                                                //             20,
+                                                                //         bottom:
+                                                                //             6),
+                                                                //     decoration: AppDecoration
+                                                                //         .outlineWhiteA7009b
+                                                                //         .copyWith(
+                                                                //             borderRadius: BorderRadiusStyle
+                                                                //                 .circleBorder19),
+                                                                //     child: Row(
+                                                                //         mainAxisSize:
+                                                                //             MainAxisSize.min,
+                                                                //         children: [
+                                                                //           CustomImageView(
+                                                                //               svgPath: ImageConstant.imgWpfname,
+                                                                //               height: getVerticalSize(23),
+                                                                //               width: getHorizontalSize(22)),
+                                                                //           Padding(
+                                                                //               padding: getPadding(left: 95, right: 137, bottom: 1),
+                                                                //               child: Text("Name", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtPoppinsRegular1469Black90087))
+                                                                //         ])),
                                                                 Container(
                                                                     margin: getMargin(
                                                                         left: 6,
@@ -106,70 +185,12 @@ class SignUpOneScreen extends StatelessWidget {
                                                                               height: getVerticalSize(21),
                                                                               width: getHorizontalSize(12),
                                                                               margin: getMargin(bottom: 3)),
-                                                                          Padding(
-                                                                              padding: getPadding(left: 78, right: 94, bottom: 2),
-                                                                              child: Text("Phone number", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtPoppinsRegular1469Black90087))
-                                                                        ])),
-                                                                Container(
-                                                                    margin: getMargin(
-                                                                        left: 6,
-                                                                        top:
-                                                                            19),
-                                                                    padding: getPadding(
-                                                                        left:
-                                                                            19,
-                                                                        top: 5,
-                                                                        right:
-                                                                            19,
-                                                                        bottom:
-                                                                            5),
-                                                                    decoration: AppDecoration
-                                                                        .outlineWhiteA700
-                                                                        .copyWith(
-                                                                            borderRadius: BorderRadiusStyle
-                                                                                .circleBorder19),
-                                                                    child: Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.min,
-                                                                        children: [
-                                                                          CustomImageView(
-                                                                              svgPath: ImageConstant.imgIcoutlineemail,
-                                                                              height: getVerticalSize(25),
-                                                                              width: getHorizontalSize(24)),
-                                                                          Padding(
-                                                                              padding: getPadding(left: 94, right: 127, bottom: 2),
-                                                                              child: Text("Email ID", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtPoppinsRegular1469Black90087))
-                                                                        ])),
-                                                                Container(
-                                                                    margin: getMargin(
-                                                                        left: 6,
-                                                                        top:
-                                                                            20),
-                                                                    padding: getPadding(
-                                                                        left:
-                                                                            20,
-                                                                        top: 6,
-                                                                        right:
-                                                                            20,
-                                                                        bottom:
-                                                                            6),
-                                                                    decoration: AppDecoration
-                                                                        .outlineWhiteA7009b
-                                                                        .copyWith(
-                                                                            borderRadius: BorderRadiusStyle
-                                                                                .circleBorder19),
-                                                                    child: Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.min,
-                                                                        children: [
-                                                                          CustomImageView(
-                                                                              svgPath: ImageConstant.imgWpfname,
-                                                                              height: getVerticalSize(23),
-                                                                              width: getHorizontalSize(22)),
-                                                                          Padding(
-                                                                              padding: getPadding(left: 95, right: 137, bottom: 1),
-                                                                              child: Text("Name", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtPoppinsRegular1469Black90087))
-                                                                        ])),
+                                                                          CustomTextFormField(
+                                                                            controller: passwordController,
+                                                                            hintText: "Enter password",
+                                                                            width: 300,
+                                                                          )
+                                                                          ])),
                                                                 Align(
                                                                     alignment:
                                                                         Alignment
@@ -212,8 +233,7 @@ class SignUpOneScreen extends StatelessWidget {
                                                                         ButtonFontStyle
                                                                             .PoppinsSemiBold2369,
                                                                     onTap: () {
-                                                                      onTapContinue(
-                                                                          context);
+                                                                      signUpUser(context);
                                                                     })
                                                               ])))
                                                 ]))),

@@ -56,6 +56,9 @@ class LoginScreenTwoScreen extends StatelessWidget {
                                                 .txtPoppinsSemiBold3015))
                                   ])),
                           CustomButton(
+                              onTap: () {
+                                onTapContinue(context);
+                              },
                               height: getVerticalSize(46),
                               text: "Sign up free",
                               margin: getMargin(left: 25, top: 59, right: 31),
@@ -63,6 +66,7 @@ class LoginScreenTwoScreen extends StatelessWidget {
                               shape: ButtonShape.CircleBorder23,
                               padding: ButtonPadding.PaddingAll10,
                               fontStyle: ButtonFontStyle.PoppinsSemiBold1669),
+                              
                           Container(
                               margin: getMargin(left: 28, top: 9, right: 27),
                               padding: getPadding(top: 6, bottom: 6),
@@ -79,14 +83,19 @@ class LoginScreenTwoScreen extends StatelessWidget {
                                         height: getVerticalSize(22),
                                         width: getHorizontalSize(12),
                                         margin: getMargin(bottom: 3)),
-                                    Padding(
-                                        padding: getPadding(top: 1),
-                                        child: Text(
-                                            "continue with phone number",
-                                            overflow: TextOverflow.ellipsis,
-                                            textAlign: TextAlign.left,
-                                            style:
-                                                AppStyle.txtPoppinsRegular1469))
+                                    CustomButton(
+                                        onTap: () {
+                                          onTapContinueWithMobile(context);
+                                        },
+                                        height: getVerticalSize(46),
+                                        text: "Continue with Mobile",
+                                        width: 300,
+                                        margin: getMargin(
+                                            left: 25, top: 0, right: 30),
+                                        variant: ButtonVariant.OutlineWhiteA700,
+                                        padding: ButtonPadding.PaddingAll10,
+                                        fontStyle:
+                                            ButtonFontStyle.PoppinsSemiBold1669)
                                   ])),
                           Container(
                               margin: getMargin(left: 25, top: 5, right: 30),
@@ -172,5 +181,11 @@ class LoginScreenTwoScreen extends StatelessWidget {
   /// to push the named route for the homepageScreen.
   onTapImgQuikarthighre(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.homepageScreen);
+  }
+   onTapContinue(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.signUpOneScreen);
+  }
+  onTapContinueWithMobile(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.signInOneScreen);
   }
 }
